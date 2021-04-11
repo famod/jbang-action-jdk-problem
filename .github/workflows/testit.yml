@@ -32,7 +32,9 @@ jobs:
 
       - name: Print Java version
         shell: bash
-        run: java -version
+        run: |
+          java -version
+          which javac
 
       - name: Run jbang
         uses: jbangdev/jbang-action@v0.69.2
