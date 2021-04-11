@@ -8,11 +8,11 @@ on:
 
   workflow_dispatch:
     inputs:
-      - jdkVersion:
+      jdkVersion:
         description: 'JDK version'
         required: true
         default: '16'
-      - jbangVersion:
+      jbangVersion:
         description: 'jbang version'
         required: true
         default: '0.70.0'
