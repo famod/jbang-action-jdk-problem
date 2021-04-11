@@ -8,10 +8,14 @@ on:
 
   workflow_dispatch:
     inputs:
-      jdkVersion:
+      - jdkVersion:
         description: 'JDK version'
         required: true
         default: '16'
+      - jbangVersion:
+        description: 'jbang version'
+        required: true
+        default: '0.70.0'
 
 env:
   JDK_VERSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.jdkVersion || '16' }}
@@ -37,6 +41,7 @@ jobs:
           which javac
 
       - name: Run jbang
-        uses: jbangdev/jbang-action@v0.69.2
+        uses: jbangdev/jbang-action@v${{ github.event.inputs.jbangVersion }}
         with:
           script: helloworld.java
+          jbangargs: --verbose
