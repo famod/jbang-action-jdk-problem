@@ -12,6 +12,10 @@ on:
         description: 'JDK version'
         required: true
         default: '16'
+      adopt:
+        description: 'Use AdoptOpenJDK'
+        required: true
+        default: 'false'
 
 env:
   JDK_VERSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.jdkVersion || '16' }}
@@ -25,8 +29,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up JDK
+      - name: Set up Zulu JDK
         uses: actions/setup-java@v1
+        if: ${{ github.event.inputs.adopt == 'false' }}
+        with:
+          java-version: ${{ env.JDK_VERSION }}
+
+      - name: Set up AdoptOpenJDK
+        uses: joschi/setup-jdk@v2.3.0
+        if: ${{ github.event.inputs.adopt == 'true' }}
         with:
           java-version: ${{ env.JDK_VERSION }}
 
@@ -34,6 +45,7 @@ jobs:
         shell: bash
         run: |
           java -version
+          echo 'Location of javac:'
           which javac
 
       - name: Run jbang
