@@ -30,7 +30,7 @@ jobs:
         with:
           java-version: ${{ env.JDK_VERSION }}
 
-      - name: Report status
+      - name: Run jbang
         uses: jbangdev/jbang-action@v0.69.2
         with:
           script: helloworld.java
