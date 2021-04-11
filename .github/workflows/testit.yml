@@ -30,6 +30,10 @@ jobs:
         with:
           java-version: ${{ env.JDK_VERSION }}
 
+      - name: Print Java version
+        shell: bash
+        run: java -version
+
       - name: Run jbang
         uses: jbangdev/jbang-action@v0.69.2
         with:
