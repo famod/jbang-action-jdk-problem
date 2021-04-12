@@ -54,4 +54,5 @@ jobs:
         with:
           script: helloworld.java
           jbangargs: --verbose
-          env: JAVA_HOME=''
+        env:
+          JAVA_HOME: ''
