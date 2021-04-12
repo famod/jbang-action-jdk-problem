@@ -49,7 +49,7 @@ jobs:
           which javac
 
       - name: Run jbang
-        uses: jbangdev/jbang-action@v0.70.0
+        uses: jbangdev/jbang-action@v0.67.3
         with:
           script: helloworld.java
           jbangargs: --verbose
