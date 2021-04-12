@@ -47,10 +47,11 @@ jobs:
           java -version
           echo 'Location of javac:'
           which javac
-          echo 'JAVA_HOME=' >> $GITHUB_ENV
+          # echo 'JAVA_HOME=' >> $GITHUB_ENV
 
       - name: Run jbang
-        uses: jbangdev/jbang-action@v0.67.3
+        uses: jbangdev/jbang-action@v0.70.0
         with:
           script: helloworld.java
           jbangargs: --verbose
+          env: JAVA_HOME=''
