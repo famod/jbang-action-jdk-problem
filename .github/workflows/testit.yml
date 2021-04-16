@@ -49,11 +49,12 @@ jobs:
           which javac
           # echo 'JAVA_HOME=' >> $GITHUB_ENV
 
-      - name: Print paths
+      - name: Copy JDK
         shell: bash
         run: |
-          ls -la /home/runner/work/_temp/_runner_file_commands
-          ls -la /home/runner/work/_temp/_github_home
+          mkdir .jdk
+          cp -va ${JAVA_HOME}/* /github/workspace/.jdk/
+          echo 'JAVA_HOME=/github/workspace/.jdk' >> $GITHUB_ENV
 
       - name: Run jbang
         uses: jbangdev/jbang-action@v0.70.0
