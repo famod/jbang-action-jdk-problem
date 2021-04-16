@@ -52,6 +52,7 @@ jobs:
       - name: Copy JDK
         shell: bash
         run: |
+          echo stat: ${{ job.status }}
           #ln -s ${JAVA_HOME} .jdk
           #mkdir .jdk
           cp -va ${JAVA_HOME} .jdk
