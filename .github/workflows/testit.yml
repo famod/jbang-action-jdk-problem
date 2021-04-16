@@ -55,8 +55,8 @@ jobs:
           pwd
           mkdir .jdk
           cp -va ${JAVA_HOME}/* .jdk/
-          echo 'JAVA_HOME=/github/workspace/.jdk' >> $GITHUB_ENV
-          echo "JAVA_HOME: ${JAVA_HOME}"
+          #echo 'JAVA_HOME=/github/workspace/.jdk' >> $GITHUB_ENV
+          #echo "JAVA_HOME: ${JAVA_HOME}"
 
       - name: Run jbang
         uses: jbangdev/jbang-action@v0.70.0
@@ -64,4 +64,4 @@ jobs:
           script: helloworld.java
           jbangargs: --verbose
         env:
-          JAVA_HOME: ''
+          JAVA_HOME: '/github/workspace/.jdk'
