@@ -59,9 +59,13 @@ jobs:
           #echo "JAVA_HOME: ${JAVA_HOME}"
 
       - name: Run jbang
-        uses: jbangdev/jbang-action@v0.70.0
-        with:
-          script: helloworld.java
-          jbangargs: --verbose
-        env:
-          JAVA_HOME: '/github/workspace/.jdk'
+        shell: bash
+        run: |
+          curl -Ls https://sh.jbang.dev | bash -s - app setup jbang
+          jbang helloworld.java
+        #uses: jbangdev/jbang-action@v0.70.0
+        #with:
+        #  script: helloworld.java
+        #  jbangargs: --verbose
+        #env:
+        #  JAVA_HOME: '/github/workspace/.jdk'
