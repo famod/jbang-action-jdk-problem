@@ -49,6 +49,12 @@ jobs:
           which javac
           # echo 'JAVA_HOME=' >> $GITHUB_ENV
 
+      - name: Print paths
+        shell: bash
+        run: |
+          ls -la /home/runner/work/_temp/_runner_file_commands
+          ls -la /home/runner/work/_temp/_github_home
+
       - name: Run jbang
         uses: jbangdev/jbang-action@v0.70.0
         with:
