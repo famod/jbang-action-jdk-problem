@@ -53,7 +53,7 @@ jobs:
         shell: bash
         run: |
           mkdir .jdk
-          cp -va ${JAVA_HOME}/* /github/workspace/.jdk/
+          cp -va ${JAVA_HOME}/* .jdk/
           echo 'JAVA_HOME=/github/workspace/.jdk' >> $GITHUB_ENV
 
       - name: Run jbang
