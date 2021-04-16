@@ -62,7 +62,7 @@ jobs:
         shell: bash
         run: |
           curl -Ls https://sh.jbang.dev | bash -s - app setup
-          jbang helloworld.java
+          ~/.jbang/bin/jbang helloworld.java
         #uses: jbangdev/jbang-action@v0.70.0
         #with:
         #  script: helloworld.java
