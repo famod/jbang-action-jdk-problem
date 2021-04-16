@@ -52,9 +52,9 @@ jobs:
       - name: Copy JDK
         shell: bash
         run: |
-          ln -s ${JAVA_HOME} .jdk
+          #ln -s ${JAVA_HOME} .jdk
           #mkdir .jdk
-          #cp -va ${JAVA_HOME}/* .jdk/
+          cp -va ${JAVA_HOME} .jdk
           #echo 'JAVA_HOME=/github/workspace/.jdk' >> $GITHUB_ENV
           #echo "JAVA_HOME: ${JAVA_HOME}"
 
