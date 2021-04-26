@@ -29,9 +29,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Paste help
+      - name: port range
         shell: bash
-        run: paste --help
+        run: cat /proc/sys/net/ipv4/ip_local_port_range
 
       - name: Set up Zulu JDK
         uses: actions/setup-java@v1
