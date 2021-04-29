@@ -29,9 +29,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: port range
+      - name: foo
         shell: bash
-        run: cat /proc/sys/net/ipv4/ip_local_port_range
+        run: |
+          FOO=$(ls | grep foobar)
+          echo "FOO: ${FOO}"
 
       - name: Set up Zulu JDK
         uses: actions/setup-java@v1
